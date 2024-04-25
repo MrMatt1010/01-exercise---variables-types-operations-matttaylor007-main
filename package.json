@@ -1,0 +1,24 @@
+{
+  "name": "01-exercise-types-and-variables",
+  "author": "Developers Institute",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve -d Submission",
+    "test": "npm run test:acceptance",
+    "test:acceptance": "start-server-and-test start http://localhost:5000 cy:run",
+    "cy:run": "cypress run --spec 'cypress/integration/partA.spec.js'"
+  },
+  "devDependencies": {
+    "cypress": "^5.2.0",
+    "jest": "^26.4.2",
+    "serve": "^11.3.2",
+    "start-server-and-test": "^1.11.4"
+  },
+  "dependencies": {},
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/cypress/",
+      "<rootDir>/node_modules/"
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Variables, types and operators</title>
+
+    <link rel="icon" href="favicon.ico?v=1.0" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Flight details</h1>
+      <div id="app"></div>
+    </div>
+
+    <script src="static/js/script.js"></script>
+    <script>
+      const tableHTML = `
+      <table>
+        <tr>
+          <th colspan="2">Passenger details</th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td id="fullName">${
+            typeof fullName === "undefined" ? "" : fullName
+          }</td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td id="email">${typeof email === "undefined" ? "" : email}</td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td id="age">${typeof age === "undefined" ? "" : age}</td>
+        </tr>
+        <tr>
+          <th>Has senior citizen discount?</th>
+          <td>
+            <span id="hasDiscount">
+            ${
+              typeof hasSeniorDiscount !== "undefined" &&
+              hasSeniorDiscount === true
+                ? "Yes"
+                : "No"
+            }
+          </span> 
+            (<span id="discountAmount">${
+              typeof seniorDiscountPercentage === "undefined"
+                ? ""
+                : seniorDiscountPercentage * 100
+            }</span>%)
+          </td>
+        </tr>
+        <tr>
+          <th>Dietary requirements</th>
+          <td>
+            <!-- sorry about the ternary -->
+            <span id="hasDietaryRequirement">${
+              typeof hasDietaryRequirement !== "undefined" &&
+              hasDietaryRequirement === true
+                ? "Yes"
+                : "No"
+            }</span><br>
+            <small>vegetarian <span id="vegetarian">${
+              typeof vegetarian !== "undefined" && vegetarian === true
+                ? "Y"
+                : "N"
+            }</span></small>
+            <small>gluten free <span id="glutenFree">${
+              typeof glutenFree !== "undefined" && glutenFree === true
+                ? "Y"
+                : "N"
+            }</span></small>
+          </td>
+        </tr>
+        <tr>
+          <th>Booking reference</th>
+          <td id="bookingReference">
+            ${typeof bookingReference === "undefined" ? "" : bookingReference}
+          </td>
+        </tr>
+        <tr>
+          <th>Departure date</th>
+          <td id="departureDate">
+            ${typeof departureDate === "undefined" ? "" : departureDate}
+          </td>
+        </tr>
+        <tr>
+          <th>Departure time</th>
+          <td id="departureTime">
+            ${typeof departureTime === "undefined" ? "" : departureTime} 
+          </td>
+        </tr>
+        <tr>
+          <th>Departure airport</th>
+          <td id="departureAirport">
+            ${typeof departureAirport === "undefined" ? "" : departureAirport}
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">Flight costs</th>
+        </tr>
+        <tr>
+          <th>Flight cost</th>
+          <td>
+            $<span id="flightCost">
+              ${typeof flightCost === "undefined" ? "" : flightCost.toFixed(2)}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Airport tax</th>
+          <td>
+            $<span id="airportTax">
+              ${typeof airportTax === "undefined" ? "" : airportTax.toFixed(2)}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Total (excluding discount)</th>
+          <td>
+            $<span id="totalCost">
+              ${typeof totalCost === "undefined" ? "" : totalCost.toFixed(2)}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Discount amount</th>
+          <td>
+            -$<span id="totalDiscount">
+              ${
+                typeof totalDiscount === "undefined"
+                  ? ""
+                  : totalDiscount.toFixed(2)
+              }
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Total (including discount)</th>
+          <td>
+            $<span id="totalWithDiscount">
+              ${
+                typeof totalWithDiscount === "undefined"
+                  ? ""
+                  : totalWithDiscount.toFixed(2)
+              }
+            </span>
+          </td>
+        </tr>
+      </table>
+      `;
+      const appEl = document.getElementById("app");
+      appEl.innerHTML = tableHTML;
+    </script>
+  </body>
+</html>
